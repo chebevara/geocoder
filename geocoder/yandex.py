@@ -153,6 +153,7 @@ class YandexQuery(MultipleResultsQuery):
             'kind': kwargs.get('kind', ''),
             'format': 'json',
             'results': kwargs.get('maxRows', 1),
+            'apikey': kwargs.get('apikey', ''),
         }
 
     def _adapt_results(self, json_response):
@@ -162,5 +163,5 @@ class YandexQuery(MultipleResultsQuery):
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
-    g = YandexQuery('1552 Payette dr., Ottawa', maxRows=3)
+    g = YandexQuery('Москва, улица Вятская, дом 3', maxRows=1, kind='house', apikey='...')
     g.debug()
